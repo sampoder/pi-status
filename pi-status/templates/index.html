@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='shortcut icon' type='image/x-icon' href='../static/favicon.ico'/>
+    <link rel = "stylesheet" type = "text/css" href = "{{url_for('static', filename='style.css')}}">
+    <script src="https://twemoji.maxcdn.com/v/12.1.4/twemoji.min.js" integrity="sha384-l2vnBuWDpO+2hY1VGTHGt533QP0iuI0FPJyR/gz5G0S4oOoGns9tVLjhrn1ygPY/"crossorigin="anonymous"></script>
+    <title>Pi Status - {{Title}}</title>
+</head>
+<body>
+    <h2>Status of {{Title}}</h2>
+<div id="lyrics">
+
+    📌 IP Address: {{ip}}
+
+    <br><br>
+
+    💭 Physical Memory: {{pmemory}} MB
+
+    <br>
+
+    🗯 Available Memory: {{amemory}} MB
+
+    <br><br>
+
+    🧠 CPU Usage: {{cpuusage}}%
+
+    <br>
+
+    🌡️ CPU Temperature: {{cputemp}}'C
+
+    <br><br>
+
+    💾 Disk Total Storage: {{tdisk}} GB
+
+    <br>
+
+    💽 Disk Available Storage: {{adisk}} GB
+</div>
+</body>
+</html>
