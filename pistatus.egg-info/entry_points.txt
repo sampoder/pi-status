@@ -1,3 +1,0 @@
-[console_scripts]
-pistatus = pistatus.__main__:main
-
