@@ -8,6 +8,11 @@ Requires Python 3.6+. Use pip or pip3 depending on your installation. You might 
 ```
 pip install pistatus
 ```
+## Changelog
+
+- #### v1
+	- The First Version!
+
 
 ## Usage
 `usage: pistatus [-g] [-w]`
