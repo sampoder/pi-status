@@ -1,9 +1,11 @@
 import os
 import re
-import psutil
 import sys
 import tkinter as tk
-from flask import Flask, render_template
+
+import psutil
+from flask import Flask
+from flask import render_template
 
 
 def main():
