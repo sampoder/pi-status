@@ -1,30 +1,33 @@
 import os
 import re
-import psutil
 import sys
 import tkinter as tk
-from flask import Flask, render_template
+
+import psutil
+from flask import Flask
+from flask import render_template
 
 
 def main():
 
     if len(sys.argv) == 1:
 
-        hostname = re.sub('\n', '', os.popen('hostname').read())
+        hostname = re.sub("\n", "", os.popen("hostname").read())
 
         ip = re.sub(
-            '\n', '',
-            os.popen('ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
+            "\n", "",
+            os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read())
 
         memory = psutil.virtual_memory()
 
         cpuusage = psutil.cpu_percent(interval=1)
 
-        cputemp = re.sub('temp=', '',
-                         re.sub('\n', '',
-                                os.popen('vcgencmd measure_temp').read()))
+        cputemp = re.sub(
+            "temp=", "",
+            re.sub("\n", "",
+                   os.popen("vcgencmd measure_temp").read()))
 
-        disk = psutil.disk_usage('/')
+        disk = psutil.disk_usage("/")
 
         print("\n" + "Hostname: " + hostname)
 
@@ -32,7 +35,8 @@ def main():
 
         print("Physical Memory: " + str(round(memory.total / 1000000)) + " MB")
 
-        print("Available Memory: " + str(round(memory.available / 1000000)) + " MB\n")
+        print("Available Memory: " + str(round(memory.available / 1000000)) +
+              " MB\n")
 
         print("CPU Usage: " + str(cpuusage) + "%")
 
@@ -62,34 +66,37 @@ def main():
 
         def setText():
 
-            hostname = re.sub('\n', '', os.popen('hostname').read())
+            hostname = re.sub("\n", "", os.popen("hostname").read())
 
             ip = re.sub(
-                '\n', '',
+                "\n",
+                "",
                 os.popen(
-                    'ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
+                    "ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
+            )
 
             memory = psutil.virtual_memory()
 
             cpuusage = psutil.cpu_percent(interval=1)
 
-            cputemp = re.sub('temp=', '',
-                             re.sub('\n', '',
-                                    os.popen('vcgencmd measure_temp').read()))
+            cputemp = re.sub(
+                "temp=", "",
+                re.sub("\n", "",
+                       os.popen("vcgencmd measure_temp").read()))
 
-            disk = psutil.disk_usage('/')
+            disk = psutil.disk_usage("/")
 
             label.configure(
                 text="\n" + "Hostname: " + hostname + "\n" + "IP Address: " +
-                ip + "\n" + "\n" + "Physical Memory: " + str(
-                    round(memory.total / 1000000)) + " MB" + "\n" +
+                ip + "\n" + "\n" + "Physical Memory: " +
+                str(round(memory.total / 1000000)) + " MB" + "\n" +
                 "Available Memory: " + str(round(memory.available / 1000000)) +
-                " MB" + "\n" + "\n" + "CPU Usage: " + str(
-                    cpuusage) + "%" + "\n" + "CPU Temperature: " + cputemp +
-                "\n" + "\n" + "Disk Total Storage: " + str(
-                    round(disk.total / 1000000000, 2)) + " GB" + "\n" +
-                "Disk Available Storage: " + str(
-                    round(disk.free / 1000000000, 2)) + " GB \n")
+                " MB" + "\n" + "\n" + "CPU Usage: " + str(cpuusage) + "%" +
+                "\n" + "CPU Temperature: " + cputemp + "\n" + "\n" +
+                "Disk Total Storage: " +
+                str(round(disk.total / 1000000000, 2)) + " GB" + "\n" +
+                "Disk Available Storage: " +
+                str(round(disk.free / 1000000000, 2)) + " GB \n")
 
             root.after(10000, setText)
 
@@ -103,31 +110,35 @@ def main():
         app = Flask(
             __name__,
             template_folder=os.path.join(
-                os.path.dirname(os.path.abspath(__file__)), 'templates'))
+                os.path.dirname(os.path.abspath(__file__)), "templates"),
+        )
 
-        @app.route('/')
-        @app.route('/index')
+        @app.route("/")
+        @app.route("/index")
         def index():
 
-            hostname = re.sub('\n', '', os.popen('hostname').read())
+            hostname = re.sub("\n", "", os.popen("hostname").read())
 
             ip = re.sub(
-                '\n', '',
+                "\n",
+                "",
                 os.popen(
-                    'ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
+                    "ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
+            )
 
             memory = psutil.virtual_memory()
 
             cpuusage = psutil.cpu_percent(interval=1)
 
-            cputemp = re.sub('temp=', '',
-                             re.sub('\n', '',
-                                    os.popen('vcgencmd measure_temp').read()))
+            cputemp = re.sub(
+                "temp=", "",
+                re.sub("\n", "",
+                       os.popen("vcgencmd measure_temp").read()))
 
-            disk = psutil.disk_usage('/')
+            disk = psutil.disk_usage("/")
 
             return render_template(
-                'index.html',
+                "index.html",
                 Title=hostname,
                 ip=ip,
                 pmemory=str(round(memory.total / 1000000)),
@@ -135,9 +146,10 @@ def main():
                 cpuusage=str(cpuusage),
                 cputemp=cputemp,
                 tdisk=str(round(disk.total / 1000000000)),
-                adisk=str(round(disk.free / 1000000000, 2)))
+                adisk=str(round(disk.free / 1000000000, 2)),
+            )
 
         ip = re.sub(
-            '\n', '',
-            os.popen('ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
+            "\n", "",
+            os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read())
         app.run(host=ip)
