@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pistatus",
-    version="0.0.1.4",
+    version="1",
     author="Sam Poder",
     author_email="23samuel.p@gwa.edu.sg",
     description=
