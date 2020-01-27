@@ -32,8 +32,7 @@ def main():
 
         print("Physical Memory: " + str(round(memory.total / 1000000)) + " MB")
 
-        print("Available Memory: " + str(round(memory.available / 1000000)) +
-              " MB\n")
+        print("Available Memory: " + str(round(memory.available / 1000000)) + " MB\n")
 
         print("CPU Usage: " + str(cpuusage) + "%")
 
