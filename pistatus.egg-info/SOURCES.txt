@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+pistatus/__init__.py
+pistatus/__main__.py
+pistatus.egg-info/PKG-INFO
+pistatus.egg-info/SOURCES.txt
+pistatus.egg-info/dependency_links.txt
+pistatus.egg-info/entry_points.txt
+pistatus.egg-info/top_level.txt
+pistatus/static/style.css
+pistatus/templates/index.html

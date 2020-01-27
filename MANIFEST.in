@@ -1,0 +1,2 @@
+include pistatus/static/*
+include pistatus/templates/*

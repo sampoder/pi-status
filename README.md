@@ -1,2 +1,3 @@
-# pi-status
- Python App to Get the Status of your Raspberry Pi
+# PiStatus
+
+PiStatus is an application that allows you to check the status of your Raspberry Pi.
