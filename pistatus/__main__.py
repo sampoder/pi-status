@@ -8,11 +8,7 @@ from flask import Flask, render_template
 def main():
 
     if len(sys.argv) == 1:
-        print("No Command Line Arguements Specified")
         
-
-    elif sys.argv[1] == "-c":
-
         hostname = re.sub('\n','',os.popen('hostname').read())
 
         ip = re.sub('\n','',os.popen('ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
@@ -39,8 +35,9 @@ def main():
 
         print("Disk Total Storage: " + str(round(disk.total/1000000000,2)) + " GB")
 
-        print("Disk Available Storage: " + str(round(disk.free/1000000000,2)) + " GB \n")
-        
+        print("Disk Available Storage: " + str(round(disk.free/1000000000,2)) + " GB \n" + "\n")
+
+        print("No Command Line Arguments Specified. Use -g to launch GUI app. Use -w to launch Web Server")
 
     elif sys.argv[1] == "-g":
 
@@ -76,9 +73,7 @@ def main():
         # Run forever!
         root.mainloop()
 
-    elif sys.argv[1] == "-t":
-
-
+    elif sys.argv[1] == "-w":
 
         app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
         @app.route('/')
@@ -97,7 +92,6 @@ def main():
 
             disk = psutil.disk_usage('/')
 
-            user = 'Sam'
             return render_template('index.html', Title=hostname, ip = ip, pmemory = str(round(memory.total/1000000)), amemory = str(round(memory.available/1000000)), cpuusage = str(cpuusage), cputemp = cputemp, tdisk = str(round(disk.total/1000000000)),adisk = str(round(disk.free/1000000000,2)))
 
         ip = re.sub('\n','',os.popen('ip addr show wlan0 | grep -Po \'inet \K[\d.]+\'').read())
