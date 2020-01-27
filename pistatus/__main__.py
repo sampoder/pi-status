@@ -15,16 +15,17 @@ def main():
         hostname = re.sub("\n", "", os.popen("hostname").read())
 
         ip = re.sub(
-            "\n", "", os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read()
-        )
+            "\n", "",
+            os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read())
 
         memory = psutil.virtual_memory()
 
         cpuusage = psutil.cpu_percent(interval=1)
 
         cputemp = re.sub(
-            "temp=", "", re.sub("\n", "", os.popen("vcgencmd measure_temp").read())
-        )
+            "temp=", "",
+            re.sub("\n", "",
+                   os.popen("vcgencmd measure_temp").read()))
 
         disk = psutil.disk_usage("/")
 
@@ -34,20 +35,18 @@ def main():
 
         print("Physical Memory: " + str(round(memory.total / 1000000)) + " MB")
 
-        print("Available Memory: " + str(round(memory.available / 1000000)) + " MB\n")
+        print("Available Memory: " + str(round(memory.available / 1000000)) +
+              " MB\n")
 
         print("CPU Usage: " + str(cpuusage) + "%")
 
         print("CPU Temperature: " + cputemp + "\n")
 
-        print("Disk Total Storage: " + str(round(disk.total / 1000000000, 2)) + " GB")
+        print("Disk Total Storage: " + str(round(disk.total / 1000000000, 2)) +
+              " GB")
 
-        print(
-            "Disk Available Storage: "
-            + str(round(disk.free / 1000000000, 2))
-            + " GB \n"
-            + "\n"
-        )
+        print("Disk Available Storage: " +
+              str(round(disk.free / 1000000000, 2)) + " GB \n" + "\n")
 
         print(
             "No Command Line Arguments Specified. Use -g to launch GUI app. Use -w to launch Web Server"
@@ -72,7 +71,8 @@ def main():
             ip = re.sub(
                 "\n",
                 "",
-                os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
+                os.popen(
+                    "ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
             )
 
             memory = psutil.virtual_memory()
@@ -80,45 +80,23 @@ def main():
             cpuusage = psutil.cpu_percent(interval=1)
 
             cputemp = re.sub(
-                "temp=", "", re.sub("\n", "", os.popen("vcgencmd measure_temp").read())
-            )
+                "temp=", "",
+                re.sub("\n", "",
+                       os.popen("vcgencmd measure_temp").read()))
 
             disk = psutil.disk_usage("/")
 
             label.configure(
-                text="\n"
-                + "Hostname: "
-                + hostname
-                + "\n"
-                + "IP Address: "
-                + ip
-                + "\n"
-                + "\n"
-                + "Physical Memory: "
-                + str(round(memory.total / 1000000))
-                + " MB"
-                + "\n"
-                + "Available Memory: "
-                + str(round(memory.available / 1000000))
-                + " MB"
-                + "\n"
-                + "\n"
-                + "CPU Usage: "
-                + str(cpuusage)
-                + "%"
-                + "\n"
-                + "CPU Temperature: "
-                + cputemp
-                + "\n"
-                + "\n"
-                + "Disk Total Storage: "
-                + str(round(disk.total / 1000000000, 2))
-                + " GB"
-                + "\n"
-                + "Disk Available Storage: "
-                + str(round(disk.free / 1000000000, 2))
-                + " GB \n"
-            )
+                text="\n" + "Hostname: " + hostname + "\n" + "IP Address: " +
+                ip + "\n" + "\n" + "Physical Memory: " +
+                str(round(memory.total / 1000000)) + " MB" + "\n" +
+                "Available Memory: " + str(round(memory.available / 1000000)) +
+                " MB" + "\n" + "\n" + "CPU Usage: " + str(cpuusage) + "%" +
+                "\n" + "CPU Temperature: " + cputemp + "\n" + "\n" +
+                "Disk Total Storage: " +
+                str(round(disk.total / 1000000000, 2)) + " GB" + "\n" +
+                "Disk Available Storage: " +
+                str(round(disk.free / 1000000000, 2)) + " GB \n")
 
             root.after(10000, setText)
 
@@ -132,8 +110,7 @@ def main():
         app = Flask(
             __name__,
             template_folder=os.path.join(
-                os.path.dirname(os.path.abspath(__file__)), "templates"
-            ),
+                os.path.dirname(os.path.abspath(__file__)), "templates"),
         )
 
         @app.route("/")
@@ -145,7 +122,8 @@ def main():
             ip = re.sub(
                 "\n",
                 "",
-                os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
+                os.popen(
+                    "ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read(),
             )
 
             memory = psutil.virtual_memory()
@@ -153,8 +131,9 @@ def main():
             cpuusage = psutil.cpu_percent(interval=1)
 
             cputemp = re.sub(
-                "temp=", "", re.sub("\n", "", os.popen("vcgencmd measure_temp").read())
-            )
+                "temp=", "",
+                re.sub("\n", "",
+                       os.popen("vcgencmd measure_temp").read()))
 
             disk = psutil.disk_usage("/")
 
@@ -171,6 +150,6 @@ def main():
             )
 
         ip = re.sub(
-            "\n", "", os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read()
-        )
+            "\n", "",
+            os.popen("ip addr show wlan0 | grep -Po 'inet \K[\d.]+'").read())
         app.run(host=ip)
