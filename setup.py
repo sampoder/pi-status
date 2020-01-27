@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pistatus",
-    version="0.0.1.2",
+    version="0.0.1.3",
     author="Sam Poder",
     author_email="23samuel.p@gwa.edu.sg",
     description="An application that allows you to check the status of your Raspberry Pi",
