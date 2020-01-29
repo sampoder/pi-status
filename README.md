@@ -1,6 +1,8 @@
 
 <h1 align="center"><img src="https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001.png" alt="SwagLyrics" height=200 align="middle">Pi-Status</h1>
 
+[![Downloads](https://pepy.tech/badge/pistatus)](https://pepy.tech/project/pistatus)
+
 Pi-Status fetches basic statistics regarding your Raspberry Pi including network, CPU, RAM & storage stats it then displays the stats in the command-line, a GUI app or a browser tab. The program can be used for remote monitoring of headless deploys or simply to conveniently get stats on your Pi. The GUI app and browser tab refresh the stats on a timely basis. The lyrics are fetched from Genius.
 
 ## Installation
