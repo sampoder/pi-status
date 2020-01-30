@@ -33,3 +33,5 @@ You can quit the web server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> and you wil
 - Clone into this repo
 - `cd` into the cloned repo.
 - `pip install -e .` the -e flag installs it locally in editable mode.
+
+## Screenshots
