@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pistatus",
-    version="1",
+    version="1.0.0.1",
     author="Sam Poder",
     author_email="23samuel.p@gwa.edu.sg",
     description=
@@ -20,4 +20,9 @@ setuptools.setup(
         "Programming Language :: Python",
         "License :: OSI Approved :: MIT License"
     ],
-    python_requires='>=3.6')
+    python_requires='>=3.6',
+    install_requires=[
+          'psutil',
+
+      ],
+    )
