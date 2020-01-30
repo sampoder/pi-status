@@ -41,7 +41,7 @@ You can quit the web server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> and you wil
 <img src="https://github.com/sampoder/pi-status/blob/master/images/webserver.png?raw=true" alt="Web View" width = 50%>
 
 ** CLI View **
-<img src="https://github.com/sampoder/pi-status/blob/master/images/cli.png?raw=true" alt="Web View" width = 50%>
+<img src="https://github.com/sampoder/pi-status/blob/master/images/cli.png?raw=true" alt="CLI View" width = 50%>
 
 ** GUI View **
-<img src="https://github.com/sampoder/pi-status/blob/master/images/gui.png?raw=true" alt="Web View" width = 50%>
+<img src="https://github.com/sampoder/pi-status/blob/master/images/gui.png?raw=true" alt="GUI View" width = 50%>
