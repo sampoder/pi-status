@@ -1,5 +1,5 @@
 
-<h1 align="center"><img src="https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001.png" alt="SwagLyrics" height=200 align="middle">Pi-Status</h1>
+<h1 align="center"><img src="https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001.png" alt="Raspberry Pi Logo" height=200 align="middle">Pi-Status</h1>
 
 [![Downloads](https://pepy.tech/badge/pistatus)](https://pepy.tech/project/pistatus)
 
@@ -35,3 +35,13 @@ You can quit the web server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> and you wil
 - `pip install -e .` the -e flag installs it locally in editable mode.
 
 ## Screenshots
+
+
+** Web View **
+<img src="https://github.com/sampoder/pi-status/blob/master/images/webserver.png?raw=true" alt="Web View" width = 50%>
+
+** CLI View **
+<img src="https://github.com/sampoder/pi-status/blob/master/images/cli.png?raw=true" alt="Web View" width = 50%>
+
+** GUI View **
+<img src="https://github.com/sampoder/pi-status/blob/master/images/gui.png?raw=true" alt="Web View" width = 50%>
