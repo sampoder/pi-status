@@ -12,8 +12,6 @@ Requires Python 3.6+. Use pip or pip3 depending on your installation. You might 
 pip install pistatus
 ```
 
-
-
 ## Usage
 `usage: pistatus [-g] [-w]`
 
@@ -34,24 +32,18 @@ You can quit the web server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> and you wil
 
 ## Screenshots
 
-
 **Web View**
-
-<br>
 
 <img src="https://github.com/sampoder/pi-status/blob/master/images/webserver.png?raw=true" alt="Web View" width = 50%>
 
 **CLI View**
 
-<br>
-
 <img src="https://github.com/sampoder/pi-status/blob/master/images/cli.png?raw=true" alt="CLI View">
 
 **GUI View**
 
-<br>
-
 <img src="https://github.com/sampoder/pi-status/blob/master/images/gui.png?raw=true" alt="GUI View">
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
